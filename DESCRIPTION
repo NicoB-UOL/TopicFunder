@@ -13,5 +13,5 @@ Imports:
 Suggests: 
     robotstxt, purrr, pbapply
 RoxygenNote: 6.0.1
-URL: http://github.com/NicoBOL/TopicFunder
+URL: http://github.com/NicoB-UOL/TopicFunder
 BugReports:  http://github.com/NicoB-UOL/TopicFunder/issues
