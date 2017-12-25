@@ -1,0 +1,7 @@
+export("pasteR")
+export("findeR")
+export("find_info")
+export("fasteR")
+export("wrap_it")
+export("plotteR")
+export("steps")

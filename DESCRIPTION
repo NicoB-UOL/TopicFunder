@@ -1,0 +1,17 @@
+Package: TopicFundeR
+Type: Package
+Title: Aquire information about funded persons and projects in the DFG-Database
+Version: 0.1.0
+Author: Nico Blokker and Alena Klenke
+Maintainer: Nico Blokker <nico.blokker@uol.de>
+Description: TopicFundeR let's you search and save information located in the GEPRIS-Database of the German Research Foundation (Deutsche Forschungsgemeinschaft)
+License: GLP-2
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    xml2, rvest, dplyr, stringr
+Suggests: 
+    robotstxt, purrr, pbapply
+RoxygenNote: 6.0.1
+URL: http://github.com/NicoBOL/TopicFunder
+BugReports:  http://github.com/NicoBOL/TopicFunder/issues
