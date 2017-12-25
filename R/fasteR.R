@@ -3,7 +3,7 @@
 #' @description This function has the same properties as "findeR" except that
 #'     it takes an additional parameter (id_only)
 #'
-#' @param x A name put in quotation marks.
+#' @param x A name put in quotation marks.sdsd
 #'
 #' @param reqtime A integer number specifying the seconds to wait between requests.
 #'     Default is set to 0.
