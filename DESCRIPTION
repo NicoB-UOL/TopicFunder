@@ -9,7 +9,7 @@ License: GLP-2
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    xml2, rvest, dplyr, stringr
+    xml2, rvest, dplyr, stringr, httr, igraph
 Suggests: 
     robotstxt, purrr, pbapply
 RoxygenNote: 6.0.1
