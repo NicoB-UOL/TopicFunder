@@ -27,5 +27,4 @@ Most of these functions heavily rely on the rvest, xml2 and httr packages, which
 ### Examples
 * single-usage  
    * `findeR('Jürgen Gerhards, reqtime = 5)'`
-   * which gives the id, the name and the searchterm
-   * ID: 1464373 | Name: Gerhards, Jürgen | searchterm: Jürgen Gerhards
+      * which gives the ID: 1464373 | the name: Gerhards, Jürgen | and           the searchterm: Jürgen Gerhards
