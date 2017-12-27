@@ -28,9 +28,10 @@ In generell there are two different ways to extract information. The first is si
 
 Most of these functions heavily rely on the rvest, xml2 and httr packages, which are used for scraping the information. It is recommended to check whether or not it is alright to scrape the data (for starters checking the robots.txt, drop a note to the homepage operator/admin etc.). Furthermore one should put a appropriate delay between the requests (we recommend atleast 5 seconds, `reqtime = 5`)
 
-### Examples
+## Examples
 
--   single-usage
+#### single-usage
+
 -   `findeR('name', reqtime = 5)`
     -   which gives the Id, the name and the searchterm
 
