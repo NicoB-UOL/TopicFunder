@@ -12,5 +12,8 @@ devtools::install_github('NicoB-UOL/TopicFunder')
 ## Usage
 This section is under development.
 
-In order to extract information about persons and subsequently projects three steps are necessary. 
-     - 
+In order to extract information about persons and subsequently projects three steps are necessary.   
+1. Find the ID of the researcher  
+   * this is done by entering the name of the person in question into  
+   * `findeR` or `fasteR`     
+
