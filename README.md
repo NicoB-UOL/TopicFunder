@@ -24,7 +24,8 @@ In generell there are two different ways to extract information. The first is si
 + this is done by entering the name of the person in question into
 + `findeR` or `fasteR`
 2. use the ID to extract the corresponding projects
-+ `find_info` or `wrap_it` 3. visualize or analyze the data
++ `find_info` or `wrap_it` 
+3. visualize or analyze the data
 + this can be done by using `plotteR` or `steps` 
 + `steps` is experimental and will take a lot of time
 
