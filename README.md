@@ -1,5 +1,5 @@
 # TopicFunder
-TopicFunder extracts funding information from the DFG-Database (GEPRIS) and produces dataframes for further analysis and visualization.
+TopicFunder is an R package that extracts funding information from the DFG-Database (GEPRIS) and produces dataframes for further analysis and visualization.
 It originated as a by-product of a masters thesis at the University of Oldenburg, Germany and is developed and maintained by Nico B and Alena K.
 
 ## Disclaimer
@@ -25,4 +25,8 @@ In generell there are two different ways to extract information. The first is si
 Most of these functions heavily rely on the rvest, xml2 and httr packages, which are used for scraping the information. It is recommended to check whether or not it is alright to scrape the data (for starters checking the robots.txt, drop a note to the homepage operator/admin etc.). Furthermore one should put a appropriate delay between the requests (we recommend atleast 5 seconds, `reqtime = 5`)
 
 ### Examples
-
+* single-usage  
+   * `findeR('Jürgen Gerhards, reqtime = 5)'`
+   * which gives the following:
+         id             name      searchterm
+1 1464373 Gerhards, Jürgen Jürgen Gerhards
