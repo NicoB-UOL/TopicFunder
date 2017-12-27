@@ -1,3 +1,4 @@
+
 TopicFunder
 ===========
 
@@ -69,5 +70,12 @@ plotteR(df, bipartite = TRUE)
 ```
 
 ![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)
+
+-   the blue circle in the middle is the researcher and the red boxes are their projects
+-   one could add other researchers in the same way and merge the dataframes or chain the requests
+
+#### multiple requests
+
+...
 
 ...
