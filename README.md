@@ -20,8 +20,9 @@ In generell there are two different ways to extract information. The first is si
    * `find_info` or `wrap_it`
 3. visualize or analyze the data  
    * this can be done by using `plotteR` or `steps`
-   * `steps` is experimental and will take a lot of time
-Most of these functions heavily rely on the rvest, xml2 and httr packages, which are used for scraping the information. It is recommended to check whether or not it is alright to scrape the data. Furthermore one should put a appropriate delay between the requests (we recommend atleast 5 seconds, `reqtime = 5`)
+   * `steps` is experimental and will take a lot of time  
+   
+Most of these functions heavily rely on the rvest, xml2 and httr packages, which are used for scraping the information. It is recommended to check whether or not it is alright to scrape the data (for starters checking the robots.txt). Furthermore one should put a appropriate delay between the requests (we recommend atleast 5 seconds, `reqtime = 5`)
 
 ### Examples
 
