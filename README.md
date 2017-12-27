@@ -28,7 +28,7 @@ Most of these functions heavily rely on the rvest, xml2 and httr packages, which
 * single-usage  
    * `findeR('name', reqtime = 5)'`
       * which gives the Id, the name and the searchterm
-   * `find_info(ID, reqtme = 5)`
+   * `find_info(ID, reqtime = 5)`
       * now we got the projecttitles, the project-ids, the number of projects and the affiliation additionally
 
 ... 
