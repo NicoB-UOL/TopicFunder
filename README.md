@@ -71,6 +71,6 @@ str(df)
 plotteR(df, bipartite = TRUE)
 ```
 
-![](README2_files/figure-markdown_github/unnamed-chunk-3-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)
 
 ...
