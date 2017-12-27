@@ -1,6 +1,6 @@
 # TopicFunder
 TopicFunder is an R package that extracts funding information from the DFG-Database (GEPRIS) and produces dataframes for further analysis and visualization.
-It originated as a by-product of a masters thesis at the University of Oldenburg, Germany and is developed and maintained by Nico B and Alena K.
+It originated as a by-product of a masters thesis at the University of Oldenburg, Germany and is developed and maintained by Nico Blokker and Alena Klenke.
 
 ## Disclaimer
 The software in this package is for educational purposes only. It is provided WITHOUT ANY WARRANTY.
