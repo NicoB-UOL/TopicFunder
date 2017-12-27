@@ -11,3 +11,6 @@ devtools::install_github('NicoB-UOL/TopicFunder')
 
 ## Usage
 This section is under development.
+
+In order to extract information about persons and subsequently projects three steps are necessary. 
+     - 
