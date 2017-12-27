@@ -24,8 +24,7 @@ In generell there are two different ways to extract information. The first is si
 + this is done by entering the name of the person in question into
 + `findeR` or `fasteR`
 2. use the ID to extract the corresponding projects
-+ `find_info` or `wrap_it` 
-3. visualize or analyze the data
++ `find_info` or `wrap_it` 3. visualize or analyze the data
 + this can be done by using `plotteR` or `steps` 
 + `steps` is experimental and will take a lot of time
 
@@ -77,6 +76,21 @@ plotteR(df, bipartite = TRUE)
 
 #### multiple requests
 
-...
+-   to generate a network with more than one researcher we add two other names and use some of the other functions to generate the dataframe
 
-...
+``` r
+names <- c('Jürgen Gerhards', 'Matthias Middell', 'Stefan Hornbostel')
+ids <- sapply(names, fasteR, reqtime = 5, id_only = TRUE)
+df <- wrap_it(ids, reqtime = 5)
+plotteR(df, bipartite = T)
+```
+
+![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)
+
+-   this time we plot a one-mode instead of a two-mode projection of the network
+
+``` r
+plotteR(df, bipartite = F)
+```
+
+![](README_files/figure-markdown_github/unnamed-chunk-5-1.png)
