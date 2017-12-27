@@ -46,6 +46,7 @@ result
     ## 1 1464373 Gerhards, Jürgen Jürgen Gerhards
 
 -   `find_info(ID, reqtime = 5)`
+-   now we got the projecttitles, the project-ids, the number of projects and the affiliation additionally
 
 ``` r
 df <- find_info(result$id, reqtime = 5)
@@ -60,7 +61,6 @@ str(df)
     ##  $ anzahl_projekte: int  12 12 12 12 12 12 12 12 12 12 ...
     ##  $ affiliation    : chr  "Adresse\n        \n                        \t\t\t\t\t\tFreie Universität Berlin Institut für Soziologie\n\t\t\t"| __truncated__ "Adresse\n        \n                        \t\t\t\t\t\tFreie Universität Berlin Institut für Soziologie\n\t\t\t"| __truncated__ "Adresse\n        \n                        \t\t\t\t\t\tFreie Universität Berlin Institut für Soziologie\n\t\t\t"| __truncated__ "Adresse\n        \n                        \t\t\t\t\t\tFreie Universität Berlin Institut für Soziologie\n\t\t\t"| __truncated__ ...
 
--   now we got the projecttitles, the project-ids, the number of projects and the affiliation additionally
 
 -   if we wanted we could already construct a network from this
 
