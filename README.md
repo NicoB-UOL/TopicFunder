@@ -1,4 +1,9 @@
 TopicFunder
+================
+Nico Blokker
+27 Dezember 2017
+
+TopicFunder
 ===========
 
 TopicFunder is an R package that extracts funding information from the DFG-Database (GEPRIS) and produces dataframes for further analysis and visualization. It originated as a by-product of a masters thesis at the University of Oldenburg, Germany and is developed and maintained by Nico Blokker and Alena Klenke.
@@ -29,7 +34,8 @@ In generell there are two different ways to extract information. The first is si
 
 Most of these functions heavily rely on the rvest, xml2 and httr packages, which are used for scraping the information. It is recommended to check whether or not it is alright to scrape the data (for starters checking the robots.txt, drop a note to the homepage operator/admin etc.). Furthermore one should put a appropriate delay between the requests (we recommend atleast 5 seconds, `reqtime = 5`)
 
-## Examples
+Examples
+--------
 
 #### single-usage
 
@@ -61,11 +67,12 @@ str(df)
     ##  $ anzahl_projekte: int  12 12 12 12 12 12 12 12 12 12 ...
     ##  $ affiliation    : chr  "Adresse\n        \n                        \t\t\t\t\t\tFreie Universität Berlin Institut für Soziologie\n\t\t\t"| __truncated__ "Adresse\n        \n                        \t\t\t\t\t\tFreie Universität Berlin Institut für Soziologie\n\t\t\t"| __truncated__ "Adresse\n        \n                        \t\t\t\t\t\tFreie Universität Berlin Institut für Soziologie\n\t\t\t"| __truncated__ "Adresse\n        \n                        \t\t\t\t\t\tFreie Universität Berlin Institut für Soziologie\n\t\t\t"| __truncated__ ...
 
-
 -   if we wanted we could already construct a network from this
 
 ``` r
 plotteR(df, bipartite = TRUE)
 ```
+
+![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)
 
 ...
