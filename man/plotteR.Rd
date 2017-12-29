@@ -4,9 +4,13 @@
 \alias{plotteR}
 \title{TopicFundeR}
 \usage{
-plotteR(df, bipartite = FALSE)
+plotteR(df, bipartite = FALSE, plotting = TRUE)
 }
 \arguments{
+\item{bipartite}{If TRUE returns a two-mode network, otherwise a one-mode network}
+
+\item{plotting}{If TRUE the network will be plotted (default option). Otherwise the two-mode-graph is returned.}
+
 \item{x}{A Dataframe.}
 }
 \value{
