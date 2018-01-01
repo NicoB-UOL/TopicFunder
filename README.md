@@ -99,7 +99,7 @@ plotteR(df, bipartite = F)
 #### exploring the DFG-network
 
 -   At this point one might wonder, how the scientist is embedded into the network as a whole
--   in order to answer this question, we use `steps` to get all the people working together in the projects of the person in question
+-   in order to answer this question, we use `steps` to get all the people working together on the projects
     -   but first we need the person's ID again:
 
 ``` r
