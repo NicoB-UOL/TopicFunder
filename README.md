@@ -99,25 +99,39 @@ plotteR(df, bipartite = F)
 #### exploring the DFG-network
 
 -   At this point one might wonder, how the scientist is embedded into the network as a whole
--   in order to answer this question, we use `steps`:
+-   in order to answer this question, we use `steps` to get all the people working together in the projects of the person in question
+    -   but first we need the person's ID again:
 
 ``` r
-# find the ID
 result <- findeR("Jürgen Gerhards", reqtime = 5)
+```
 
-# find project IDs
+-   after that we can use the ID to extract the project IDs:
+
+``` r
 df <- wrap_it(result$id, reqtime = 5)
+```
 
-# build dataframe with cooperating scientists ('neighbours')
+-   finally we use `steps` to find the cooperating scientists ('direct neighbours')
+
+``` r
 df2 <- lapply(df$project_id, steps, reqtime = .5)
 step1 <- do.call(rbind, df2)
 df_step1 <- dplyr::distinct(step1, id, project_id, .keep_all = T)
+```
 
+-   from this we can construct a one-mode network and write it out as an igraph-object
+
+``` r
 # construct network and write out igraph-object
 graph <- plotteR(df_step1, plotting = F, bipartite = F)
+```
 
+-   here we need to load igraph explicitly for further analysis
+
+``` r
 # extract and colour communities
-library(igraph) # at this point we need to load igraph explicitly for further analysis
+library(igraph) 
 fg <- fastgreedy.community(graph)
 V(graph)$colour <- membership(fg)
 
@@ -129,6 +143,8 @@ dg[1:2]
     ##   Professor Dr. Jürgen  Gerhards Professor Dr. Hans-Peter  Müller 
     ##                               77                               49
 
+-   the resulting network shows the interconnectedness of the collaborators
+
 ``` r
 # plot the network
 plot(graph, 
@@ -138,4 +154,6 @@ plot(graph,
      vertex.size = 6, vertex.color = V(graph)$colour)
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-11-1.png)
+
+-   by using `steps` again we could take a further look at the second degree neighbours and so on. However this would take a lot of time (exponential) and is not very stable.
