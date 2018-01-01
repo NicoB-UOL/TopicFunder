@@ -34,6 +34,9 @@ plotteR <- function(df, bipartite = FALSE, plotting = TRUE){
             g <- g$proj2
             plot(g, vertex.color = igraph::V(g)$colour, vertex.label.cex = .8, edge.width = 2)
         }
+    } else if (bipartite == FALSE){
+        g <- igraph::bipartite.projection(g)
+        g <- g$proj2
     } else {
         g
     }
