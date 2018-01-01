@@ -77,7 +77,7 @@ plotteR(df, bipartite = TRUE)
 
 #### multiple requests
 
--   to generate a network with more than one researcher we add two other names and use some of the other functions to generate the dataframe
+-   to generate a network with more than one researcher we add two other names and use some of the other functions (`fasteR` and `wrap_it`) to generate the dataframe
 
 ``` r
 names <- c('Jürgen Gerhards', 'Matthias Middell', 'Stefan Hornbostel')
@@ -95,3 +95,47 @@ plotteR(df, bipartite = F)
 ```
 
 ![](README_files/figure-markdown_github/unnamed-chunk-5-1.png)
+
+#### exploring the DFG-network
+
+-   At this point one might wonder, how the scientist is embedded into the network as a whole
+-   in order to answer this question, we use `steps`:
+
+``` r
+# find the ID
+result <- findeR("Jürgen Gerhards", reqtime = 5)
+
+# find project IDs
+df <- wrap_it(result$id, reqtime = 5)
+
+# build dataframe with cooperating scientists ('neighbours')
+df2 <- lapply(df$project_id, steps, reqtime = .5)
+step1 <- do.call(rbind, df2)
+df_step1 <- dplyr::distinct(step1, id, project_id, .keep_all = T)
+
+# construct network and write out igraph-object
+graph <- plotteR(df_step1, plotting = F, bipartite = F)
+
+# extract and colour communities
+library(igraph) # at this point we need to load igraph explicitly for further analysis
+fg <- fastgreedy.community(graph)
+V(graph)$colour <- membership(fg)
+
+# get the scientists with highest and second highest degree
+dg <- sort(degree(graph), decreasing = T)
+dg[1:2]
+```
+
+    ##   Professor Dr. Jürgen  Gerhards Professor Dr. Hans-Peter  Müller 
+    ##                               77                               49
+
+``` r
+# plot the network
+plot(graph, 
+     vertex.label = ifelse(V(graph)$name == "Professor Dr. Jürgen  Gerhards"|
+                               V(graph)$name == "Professor Dr. Hans-Peter  Müller",
+                           V(graph)$name, NA),
+     vertex.size = 6, vertex.color = V(graph)$colour)
+```
+
+![](README_files/figure-markdown_github/unnamed-chunk-6-1.png)
