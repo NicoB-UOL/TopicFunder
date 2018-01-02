@@ -2,12 +2,12 @@
 TopicFunder
 ===========
 
-TopicFunder is an R package that extracts funding information from the DFG-Database (GEPRIS) and produces dataframes for further analysis and visualization. It originated as a by-product of a masters thesis at the University of Oldenburg, Germany and is developed and maintained by Nico Blokker and Alena Klenke.
+TopicFunder is an R package that extracts funding information from the DFG-Database (GEPRIS) and produces dataframes for further analysis and visualization. It originated as a by-product of a masters thesis at the University of Oldenburg, Germany and is developed and maintained by Nico Blokker and Alena Klenke ([![DOI](https://zenodo.org/badge/115342693.svg)](https://zenodo.org/badge/latestdoi/115342693)).
 
 Disclaimer
 ----------
 
-The software in this package is for educational purposes only. It is provided WITHOUT ANY WARRANTY. USE AT YOUR OWN RISK!
+The software in this package is for educational purposes only. It is provided WITHOUT ANY WARRANTY. USE AT YOUR OWN RISK! See LICENCE.txt for further information.
 
 Installation
 ------------
@@ -26,7 +26,7 @@ In generell there are two different ways to extract information. The first is si
 2. use the ID to extract the corresponding projects
 + `find_info` or `wrap_it` 
 3. visualize or analyze the data
-+ this can be done by using `plotteR` or `steps` 
++ this can be done by using `plotteR` or `steps`
 + `steps` is experimental and will take a lot of time
 
 Most of these functions heavily rely on the rvest, xml2 and httr packages, which are used for scraping the information. It is recommended to check whether or not it is alright to scrape the data (for starters checking the robots.txt, drop a note to the homepage operator/admin etc.). Furthermore one should put a appropriate delay between the requests (we recommend atleast 5 seconds, `reqtime = 5`)
