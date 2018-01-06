@@ -1,16 +1,26 @@
 
+-   [TopicFunder](#topicfunder)
+    -   [Disclaimer](#disclaimer)
+    -   [Installation](#installation)
+    -   [Usage](#usage)
+    -   [Examples](#examples)
+        -   [single-usage](#single-usage)
+        -   [multiple requests](#multiple-requests)
+        -   [exploring the DFG-network](#exploring-the-dfg-network)
+        -   [extracting project information](#extracting-project-information)
+
 TopicFunder
 ===========
 
-TopicFunder is an R package that extracts funding information from the DFG-Database (GEPRIS) and produces dataframes for further analysis and visualization. It originated as a by-product of a master's thesis at the University of Oldenburg, Germany and is developed and maintained by Nico Blokker and Alena Klenke.
+TopicFunder is an R package that extracts funding information from the DFG-Database (GEPRIS) and produces dataframes for further analysis and visualization. It originated as a by-product of a masters thesis at the University of Oldenburg, Germany and is developed and maintained by Nico Blokker and Alena Klenke.
 
-Please cite as: Blokker, Nico, Klenke, Alena, 2018. NicoB-UOL/TopicFunder: Updated Version. doi:10.5281/zenodo.1134555.
-[![DOI](https://zenodo.org/badge/115342693.svg)](https://zenodo.org/badge/latestdoi/115342693)
+Please cite as: Blokker, Nico and Alena Klenke (2018). NicoB-UOL/TopicFunder: Updated Version. 
+[![DOI](https://zenodo.org/badge/115342693.svg)](https://zenodo.org/badge/latestdoi/115342693).
 
 Disclaimer
 ----------
 
-The software in this package is for educational purposes only. It is provided WITHOUT ANY WARRANTY. USE AT YOUR OWN RISK! See LICENSE.txt for further information.
+The software in this package is for educational purposes only. It is provided WITHOUT ANY WARRANTY. USE AT YOUR OWN RISK! See LICENCE.txt for further information.
 
 Installation
 ------------
@@ -29,7 +39,7 @@ In generell there are two different ways to extract information. The first is si
 2. use the ID to extract the corresponding projects
 + `find_info` or `wrap_it` 
 3. visualize or analyze the data
-+ this can be done by using `plotteR` or `steps`
++ this can be done by using `plotteR` or `steps` 
 + `steps` is experimental and will take a lot of time
 
 Most of these functions heavily rely on the rvest, xml2 and httr packages, which are used for scraping the information. It is recommended to check whether or not it is alright to scrape the data (for starters checking the robots.txt, drop a note to the homepage operator/admin etc.). Furthermore one should put a appropriate delay between the requests (we recommend atleast 5 seconds, `reqtime = 5`)
@@ -160,3 +170,18 @@ plot(graph,
 ![](README_files/figure-markdown_github/unnamed-chunk-11-1.png)
 
 -   by using `steps` again we could take a further look at the second degree neighbours and so on. However this would take a lot of time (exponential) and is not very stable.
+
+#### extracting project information
+
+-   let's say we are interested in the project texts for further analysis
+-   by using `steps2` from v0.1.3, we could accomplish this task
+    -   note that this function is also highly experimental, inefficient and time consuming
+    -   the function takes the person's Id aswell as the project's ID, just make sure to use `projects = TRUE/FALSE`
+
+``` r
+result <- findeR("Jürgen Gerhards", reqtime = 5)
+df <- steps2(result$id, reqtime = 5, projects = FALSE, texts = TRUE)
+str(df$text)
+```
+
+    ##  chr [1:12] "Die Banken-, Euro- und Wirtschaftskrise der Europäischen Union hat die Solidarität zwischen den europäischen Lä"| __truncated__ ...
