@@ -22,7 +22,7 @@ Blokker, Nico and Alena Klenke (2018). NicoB-UOL/TopicFunder: Updated Version.
 Disclaimer
 ----------
 
-The software in this package is for educational purposes only. It is provided WITHOUT ANY WARRANTY. USE AT YOUR OWN RISK! See LICENCE.txt for further information.
+The software in this package is for educational purposes only. It is provided WITHOUT ANY WARRANTY. USE AT YOUR OWN RISK! See LICENSE.txt for further information.
 
 Installation
 ------------
