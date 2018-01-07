@@ -171,7 +171,7 @@ plot(graph,
 
 ![](README_files/figure-markdown_github/unnamed-chunk-11-1.png)
 
--   by using `steps` again we could take a further look at the second degree neighbours and so on. However this would take a lot of time (exponential) and is not very stable.
+-   by using `steps` again we could take a further look at the second degree neighbours and so on. However this would take a lot of time (exponential growth) and is not very stable.
 
 #### extracting project information
 
