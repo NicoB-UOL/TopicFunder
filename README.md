@@ -175,7 +175,7 @@ plot(graph,
 
 #### extracting project information
 
--   let's say we are interested in the project texts for further analysis
+-   let's say we were interested in the project texts for further analysis
 -   by using `steps2` from v0.1.3, we could accomplish this task
     -   note that this function is also highly experimental, inefficient and time consuming
     -   the function takes the person's Id aswell as the project's ID, just make sure to use `projects = TRUE/FALSE`
