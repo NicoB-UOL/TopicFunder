@@ -16,7 +16,7 @@ TopicFunder is a R package that extracts funding information from the DFG-Databa
 
 Please cite as: 
 
-Blokker, Nico and Alena Klenke (2018). NicoB-UOL/TopicFunder: Updated Version. 
+Blokker, Nico and Alena Klenke (2018). NicoB-UOL/TopicFunder: Improved Version (Version v.0.1.4). Zenodo. 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1143839.svg)](https://doi.org/10.5281/zenodo.1143839)
 
 Disclaimer
