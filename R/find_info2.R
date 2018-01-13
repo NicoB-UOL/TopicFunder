@@ -34,7 +34,7 @@ find_info2 <- function(x, reqtime = 0) {
         temp <- vector()
         temp <- x
         saveRDS(temp,"temp.rds")
-        message("Generating temp.rds in working directory to avoid redundancy. Delete after use with > unlink('temp.rds', recursive=TRUE)")
+        message("Generating temp.rds in working directory to avoid redundancy. Delete after use with > unlink('temp.rds')")
 
     }
 
