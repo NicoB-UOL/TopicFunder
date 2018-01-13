@@ -12,7 +12,7 @@
 #' @return Returns a dataframe with additional project variables, such as number of
 #'      projects, name of the projects and their corresponding IDs.
 #'
-#' @examples  find_info(id)
+#' @examples  find_info2(id)
 #' @examples
 #' x <- findeR("name")
 #' y <- find_info(x$id)
@@ -21,8 +21,28 @@
 #'
 #' @export
 
-find_info <- function(x, reqtime = 0) {
+find_info2 <- function(x, reqtime = 0) {
+    if(file.exists("temp.rds")){
 
+        temp <- readRDS("temp.rds")
+        temp <- append(temp, x)
+        saveRDS(temp, "temp.rds")
+
+
+    } else {
+
+        temp <- vector()
+        temp <- x
+        saveRDS(temp,"temp.rds")
+        message("Generating temp.rds in working directory to avoid redundancy. Delete after use with > unlink('temp.rds', recursive=TRUE)")
+
+    }
+
+    temp <- readRDS("temp.rds")
+    dutemp <- duplicated(temp)
+    dutemp <- tail(dutemp, 1)
+
+    if(dutemp == FALSE){
         Sys.sleep(reqtime)
         id <- as.numeric(x)
         link <- paste0("http://gepris.dfg.de/gepris/person/", id)
@@ -52,5 +72,9 @@ find_info <- function(x, reqtime = 0) {
             data.frame(id, name, projects, project_id, anzahl_projekte,
                        affiliation, stringsAsFactors = F)
         }
-
+    } else {
+        message("Duplicated ID detected proceeding with next ID.")
+        data.frame(id = NA, name = NA, projects = NA, project_id = NA,
+                   anzahl_projekte = NA, affiliation = NA, stringsAsFactors = F)
+    }
 }
