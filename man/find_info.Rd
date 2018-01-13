@@ -14,7 +14,7 @@ Default is set to 0.}
 }
 \value{
 Returns a dataframe with additional project variables, such as number of
-     projects, name of the projects and their corresponding IDs
+     projects, name of the projects and their corresponding IDs.
 }
 \description{
 Extract additional information based on a person's ID.

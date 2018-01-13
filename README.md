@@ -12,17 +12,16 @@
 TopicFunder
 ===========
 
-TopicFunder is a R package that extracts funding information from the DFG-Database (GEPRIS) and produces dataframes for further analysis and visualization. It originated as a by-product of a master's thesis at the University of Oldenburg, Germany and is developed and maintained by Nico Blokker and Alena Klenke.
+TopicFunder is an R package that extracts funding information from the DFG-Database (GEPRIS) and produces dataframes for further analysis and visualization. It originated as a by-product of a master's thesis at the University of Oldenburg, Germany and is developed and maintained by Nico Blokker and Alena Klenke.
 
-Please cite as: 
+Please cite as:
 
-Blokker, Nico and Alena Klenke (2018). NicoB-UOL/TopicFunder: Improved Version (Version v.0.1.4). Zenodo. 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1143839.svg)](https://doi.org/10.5281/zenodo.1143839)
+Blokker, Nico and Klenke, Alena (2018). NicoB-UOL/TopicFunder: Updated Version. [![DOI](https://zenodo.org/badge/115342693.svg)](https://zenodo.org/badge/latestdoi/115342693)
 
 Disclaimer
 ----------
 
-The software in this package is for educational purposes only. It is provided WITHOUT ANY WARRANTY. USE AT YOUR OWN RISK! See LICENSE for further information.
+The software in this package is for educational purposes only. It is provided WITHOUT ANY WARRANTY. USE AT YOUR OWN RISK! See LICENSE.txt for further information.
 
 Installation
 ------------
@@ -44,7 +43,7 @@ In generell there are two different ways to extract information. The first is si
 + this can be done by using `plotteR` or `steps` 
 + `steps` is experimental and will take a lot of time
 
-Most of these functions heavily rely on the rvest, xml2 and httr packages, which are used for scraping the information. It is recommended to check whether or not it is allowed to scrape the data (for starters checking the robots.txt, drop a note to the homepage operator/admin etc.). Furthermore one should put an appropriate delay between the requests (we recommend atleast 5 seconds, `reqtime = 5`)
+Most of these functions heavily rely on the rvest, xml2 and httr packages, which are used for scraping the information. It is recommended to check whether or not it is allowed to scrape the data (for starters checking the robots.txt, drop a note to the homepage operator/admin, etc.). Furthermore one should put a appropriate delay between the requests (we recommend atleast 5 seconds, `reqtime = 5`)
 
 Examples
 --------
@@ -103,7 +102,7 @@ plotteR(df, bipartite = T)
 
 ![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)
 
--   this time we plot an one-mode instead of a two-mode projection of the network
+-   this time we plot a one-mode instead of a two-mode projection of the network
 
 ``` r
 plotteR(df, bipartite = F)
@@ -135,10 +134,9 @@ step1 <- do.call(rbind, df2)
 df_step1 <- dplyr::distinct(step1, id, project_id, .keep_all = T)
 ```
 
--   from this we can construct an one-mode network and write it out as an igraph-object
+-   from this we can construct a one-mode network and write it out as an igraph-object
 
 ``` r
-# construct network and write out igraph-object
 graph <- plotteR(df_step1, plotting = F, bipartite = F)
 ```
 
@@ -161,7 +159,6 @@ dg[1:2]
 -   the resulting network shows the interconnectedness of the collaborators
 
 ``` r
-# plot the network
 plot(graph, 
      vertex.label = ifelse(V(graph)$name == "Professor Dr. Jürgen  Gerhards"|
                                V(graph)$name == "Professor Dr. Hans-Peter  Müller",
