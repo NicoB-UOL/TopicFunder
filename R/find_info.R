@@ -22,7 +22,15 @@
 #' @export
 
 find_info <- function(x, reqtime = 0) {
-
+    if(exists("discardable_index")){
+        discardable_index <<- append(discardable_index, x)
+    } else {
+        discardable_index <<- vector()
+        discardable_index <<- x
+    }
+    dutemp <- duplicated(discardable_index)
+    dutemp <- tail(dutemp, 1)
+    if(dutemp == FALSE){
         Sys.sleep(reqtime)
         id <- as.numeric(x)
         link <- paste0("http://gepris.dfg.de/gepris/person/", id)
@@ -38,7 +46,6 @@ find_info <- function(x, reqtime = 0) {
             project_link <- rvest::html_attr(projectlist, "href")
             projects <- rvest::html_text(projectlist, trim = TRUE)
             project_id <- stringr::str_extract(project_link, "\\d+")
-
         }
         else {
             projectlist <- list()
@@ -52,5 +59,9 @@ find_info <- function(x, reqtime = 0) {
             data.frame(id, name, projects, project_id, anzahl_projekte,
                        affiliation, stringsAsFactors = F)
         }
-
+    } else {
+        message("Duplicated ID detected proceeding with next ID.")
+        data.frame(id = NA, name = NA, projects = NA, project_id = NA,
+                   anzahl_projekte = NA, affiliation = NA, stringsAsFactors = F)
+    }
 }
