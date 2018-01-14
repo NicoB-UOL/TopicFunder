@@ -38,6 +38,7 @@ steps <- function(project_id, reqtime = 0){
 
     df <- wrap_it(unique(ids), reqtime = reqtime)
     df <- dplyr::distinct(df, id, project_id, .keep_all = T)
+    df <- df[complete.cases(df),]
 
 
 }

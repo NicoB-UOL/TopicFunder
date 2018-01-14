@@ -22,23 +22,25 @@
 #' @export
 
 find_info2 <- function(x, reqtime = 0) {
-    if(file.exists("temp.rds")){
 
-        temp <- readRDS("temp.rds")
+    direc <- tempdir()
+    if(file.exists(paste0(direc, "\\temp1234.rds"))){
+
+        temp <- readRDS(paste0(direc, "\\temp1234.rds"))
         temp <- append(temp, x)
-        saveRDS(temp, "temp.rds")
+        saveRDS(temp, paste0(direc, "\\temp1234.rds"))
 
 
     } else {
 
         temp <- vector()
         temp <- x
-        saveRDS(temp,"temp.rds")
-        message("Generating temp.rds in working directory to avoid redundancy. Delete after use with > unlink('temp.rds')")
+        saveRDS(temp, paste0(direc, "\\temp1234.rds"))
+        print(paste0("Generating temp1234.rds in temporary directory to avoid redundancy. Exiting current session will remove it. Alternatively use unlink('", direc, "\\temp1234.rds') "))
 
     }
 
-    temp <- readRDS("temp.rds")
+    temp <- readRDS(paste0(direc, "\\temp1234.rds"))
     dutemp <- duplicated(temp)
     dutemp <- tail(dutemp, 1)
 

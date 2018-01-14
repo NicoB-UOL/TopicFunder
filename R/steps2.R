@@ -42,6 +42,7 @@ steps2 <- function(project_id, reqtime = 0, texts = FALSE, projects = FALSE){
     }
     df <- wrap_it(unique(ids), reqtime = reqtime)
     df <- dplyr::distinct(df, id, project_id, .keep_all = T)
+    df <- df[complete.cases(df),]
 
     if(texts == TRUE) {
         get_text <- function(project_id, reqtime = 0) {
