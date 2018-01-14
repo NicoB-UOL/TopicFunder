@@ -16,7 +16,7 @@ TopicFunder is an R package that extracts funding information from the DFG-Datab
 
 Please cite as:
 
-Blokker, Nico and Klenke, Alena (2018). NicoB-UOL/TopicFunder: Updated Version.(Version v.0.1.4). Zenodo. [![DOI](https://zenodo.org/badge/115342693.svg)](https://zenodo.org/badge/latestdoi/115342693)
+Blokker, Nico and Klenke, Alena (2018). NicoB-UOL/TopicFunder: Updated Version. (Version v.0.1.4). Zenodo. [![DOI](https://zenodo.org/badge/115342693.svg)](https://zenodo.org/badge/latestdoi/115342693)
 
 Disclaimer
 ----------
@@ -64,6 +64,7 @@ result
 
 -   `find_info(ID, reqtime = 5)`
 -   now we got the projecttitles, the project-ids, the number of projects and the affiliation additionally
+-   *Note that* `find info`, `wrap_it` *and* `steps` *will create a continuous index, that should be discarded after use* `rm(discardable_index)`. *That is, if further requests are intended.*
 
 ``` r
 df <- find_info(result$id, reqtime = 5)
@@ -77,6 +78,16 @@ str(df)
     ##  $ project_id     : chr  "273553843" "321602695" "5404954" "5414296" ...
     ##  $ anzahl_projekte: int  12 12 12 12 12 12 12 12 12 12 ...
     ##  $ affiliation    : chr  "Adresse\n        \n                        \t\t\t\t\t\tFreie Universität Berlin Institut für Soziologie\n\t\t\t"| __truncated__ "Adresse\n        \n                        \t\t\t\t\t\tFreie Universität Berlin Institut für Soziologie\n\t\t\t"| __truncated__ "Adresse\n        \n                        \t\t\t\t\t\tFreie Universität Berlin Institut für Soziologie\n\t\t\t"| __truncated__ "Adresse\n        \n                        \t\t\t\t\t\tFreie Universität Berlin Institut für Soziologie\n\t\t\t"| __truncated__ ...
+
+``` r
+df_empty <- find_info(result$id, reqtime = 5) # here the ID got blacklisted as already checked
+```
+
+    ## Duplicated ID detected proceeding with next ID.
+
+``` r
+rm(discardable_index) # now we could repeat the same request
+```
 
 -   if we wanted we could already construct a network from this
 
@@ -97,6 +108,7 @@ plotteR(df, bipartite = TRUE)
 names <- c('Jürgen Gerhards', 'Matthias Middell', 'Stefan Hornbostel')
 ids <- sapply(names, fasteR, reqtime = 5, id_only = TRUE)
 df <- wrap_it(ids, reqtime = 5)
+rm(discardable_index)
 plotteR(df, bipartite = T)
 ```
 
@@ -124,12 +136,14 @@ result <- findeR("Jürgen Gerhards", reqtime = 5)
 
 ``` r
 df <- wrap_it(result$id, reqtime = 5)
+rm(discardable_index)
 ```
 
 -   finally we use `steps` to find the cooperating scientists ('direct neighbours')
 
 ``` r
 df2 <- lapply(df$project_id, steps, reqtime = .5)
+rm(discardable_index)
 step1 <- do.call(rbind, df2)
 df_step1 <- dplyr::distinct(step1, id, project_id, .keep_all = T)
 ```
