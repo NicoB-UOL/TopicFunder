@@ -43,6 +43,7 @@ find_info <- function(x, reqtime = 0) {
             anzahl_projekte <- length(projectlist)
             affiliation <- rvest::html_nodes(page, ".details p:nth-child(1)")
             affiliation <- rvest::html_text(affiliation, trim = T)
+            affiliation <- gsub("(\\t|\\n|\\s+)", " ", affiliation)
             project_link <- rvest::html_attr(projectlist, "href")
             projects <- rvest::html_text(projectlist, trim = TRUE)
             project_id <- stringr::str_extract(project_link, "\\d+")
