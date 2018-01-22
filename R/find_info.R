@@ -21,12 +21,16 @@
 #'
 #' @export
 
-find_info <- function(x, reqtime = 0) {
-    if(exists("discardable_index")){
+find_info <- function(x, reqtime = 0, index = TRUE) {
+
+    if (index == TRUE & exists("discardable_index")) {
         discardable_index <<- append(discardable_index, x)
-    } else {
+    }
+    else if (index == TRUE & !exists("discardable_index")) {
         discardable_index <<- vector()
         discardable_index <<- x
+    } else {
+        discardable_index <- NA
     }
     dutemp <- duplicated(discardable_index)
     dutemp <- tail(dutemp, 1)
