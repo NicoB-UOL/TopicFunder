@@ -4,7 +4,7 @@
 \alias{find_info}
 \title{TopicFundeR}
 \usage{
-find_info(x, reqtime = 0)
+find_info(x, reqtime = 0, index = TRUE)
 }
 \arguments{
 \item{x}{A numeric ID.}

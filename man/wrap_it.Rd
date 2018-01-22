@@ -4,7 +4,7 @@
 \alias{wrap_it}
 \title{TopicFundeR}
 \usage{
-wrap_it(ids, reqtime = 0)
+wrap_it(ids, reqtime = 0, index = TRUE)
 }
 \arguments{
 \item{ids}{Vector containing IDs}

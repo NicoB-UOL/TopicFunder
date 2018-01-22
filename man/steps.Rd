@@ -4,7 +4,7 @@
 \alias{steps}
 \title{TopicFundeR}
 \usage{
-steps(project_id, reqtime = 0)
+steps(project_id, reqtime = 0, index = TRUE)
 }
 \arguments{
 \item{reqtime}{A integer number specifying the seconds to wait between requests.
