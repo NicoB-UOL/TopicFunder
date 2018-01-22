@@ -64,7 +64,7 @@ result
 
 -   `find_info(ID, reqtime = 5)`
 -   now we got the projecttitles, the project-ids, the number of projects and the affiliation additionally
--   *Note that* `find info`, `wrap_it` *and* `steps` *will create a continuous index, that should be discarded after use* `rm(discardable_index)`. *That is, if further requests are intended.*
+-   *Note that* `find info`, `wrap_it` *and* `steps` *will create a continuous index (unless index = FALSE), that should be discarded after use* `rm(discardable_index)`. *That is, if further requests are intended.*
 
 ``` r
 df <- find_info(result$id, reqtime = 5)
@@ -77,7 +77,7 @@ str(df)
     ##  $ projects       : chr  "Wie ausgeprägt ist die Solidarität zwischen den Bürgern und den Mitgliedsländern Europas?" "Die Wahl von Latein und Altgriechisch als schulische Fremdsprachen: Eine Distinktionsstrategie der oberen sozialen Klassen?" "Messung und Analyse von Prozessen des sozialen Wandels anhand der Vergabe von Vornamen: Aufbereitung und Auswertung des SOEP" "Die Europäische Union und die massenmediale Attribution von Verantwortung. Eine länder-, zeit- und medienvergle"| __truncated__ ...
     ##  $ project_id     : chr  "273553843" "321602695" "5404954" "5414296" ...
     ##  $ anzahl_projekte: int  12 12 12 12 12 12 12 12 12 12 ...
-    ##  $ affiliation    : chr  "Adresse\n        \n                        \t\t\t\t\t\tFreie Universität Berlin Institut für Soziologie\n\t\t\t"| __truncated__ "Adresse\n        \n                        \t\t\t\t\t\tFreie Universität Berlin Institut für Soziologie\n\t\t\t"| __truncated__ "Adresse\n        \n                        \t\t\t\t\t\tFreie Universität Berlin Institut für Soziologie\n\t\t\t"| __truncated__ "Adresse\n        \n                        \t\t\t\t\t\tFreie Universität Berlin Institut für Soziologie\n\t\t\t"| __truncated__ ...
+    ##  $ affiliation    : chr  "Adresse Freie Universität Berlin Institut für Soziologie Garystraße 55 14195 Berlin" "Adresse Freie Universität Berlin Institut für Soziologie Garystraße 55 14195 Berlin" "Adresse Freie Universität Berlin Institut für Soziologie Garystraße 55 14195 Berlin" "Adresse Freie Universität Berlin Institut für Soziologie Garystraße 55 14195 Berlin" ...
 
 ``` r
 df_empty <- find_info(result$id, reqtime = 5) # here the ID got blacklisted as already checked

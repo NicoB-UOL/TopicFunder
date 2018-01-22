@@ -16,7 +16,7 @@
 #'
 #' @export
 
-steps <- function(project_id, reqtime = 0){
+steps <- function(project_id, reqtime = 0, index = TRUE){
     Sys.sleep(reqtime)
     id <- as.numeric(project_id)
     link <- paste0("http://gepris.dfg.de/gepris/projekt/", id)
@@ -36,7 +36,7 @@ steps <- function(project_id, reqtime = 0){
     }
 
 
-    df <- wrap_it(unique(ids), reqtime = reqtime)
+    df <- wrap_it(unique(ids), reqtime = reqtime, index = index)
     df <- dplyr::distinct(df, id, project_id, .keep_all = T)
     df <- df[complete.cases(df),]
 

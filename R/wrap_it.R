@@ -16,8 +16,8 @@
 #' @export
 #'
 #'
-wrap_it <- function(ids, reqtime = 0) {
-    proj <- lapply(ids, TopicFundeR::find_info, reqtime)
+wrap_it <- function(ids, reqtime = 0, index = TRUE) {
+    proj <- lapply(ids, TopicFundeR::find_info, reqtime, index = index)
     if(length(ids) > 1){
         fun <- function(x){
             id <- proj[[x]]$id
