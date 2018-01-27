@@ -11,15 +11,17 @@ wrap_it(ids, reqtime = 0, index = TRUE)
 
 \item{reqtime}{A integer number specifying the seconds to wait between requests.
 Default is set to 0. Recommended is 5.}
+
+\item{index}{If set to TRUE, a continuous index keeps track of IDs already scraped.}
 }
 \value{
 Returns a dataframe consisting of a ID-Variable, the name-Variable
     and the input-Variable and several others.
 }
 \description{
-Used for extracting information of \textit{multiple} IDs.
+Used for extracting information of multiple IDs.
 }
 \examples{
-wrap_it(ids, reqtime = 5)
+wrap_it(ids, reqtime = 5, index = TRUE)
 
 }

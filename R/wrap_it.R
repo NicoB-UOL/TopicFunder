@@ -1,6 +1,6 @@
 #' @title TopicFundeR
 #'
-#' @description Used for extracting information of \textit{multiple} IDs.
+#' @description Used for extracting information of multiple IDs.
 #'
 #'
 #' @param ids Vector containing IDs
@@ -8,10 +8,12 @@
 #' @param reqtime A integer number specifying the seconds to wait between requests.
 #'     Default is set to 0. Recommended is 5.
 #'
+#' @param index If set to TRUE, a continuous index keeps track of IDs already scraped.
+#'
 #' @return Returns a dataframe consisting of a ID-Variable, the name-Variable
 #'     and the input-Variable and several others.
 #'
-#' @examples wrap_it(ids, reqtime = 5)
+#' @examples wrap_it(ids, reqtime = 5, index = TRUE)
 #'
 #' @export
 #'

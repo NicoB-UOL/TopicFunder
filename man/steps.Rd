@@ -10,6 +10,8 @@ steps(project_id, reqtime = 0, index = TRUE)
 \item{reqtime}{A integer number specifying the seconds to wait between requests.
 Default is set to 0.}
 
+\item{index}{If set to TRUE, a continuous index keeps track of IDs already scraped.}
+
 \item{x}{A numeric ID.}
 }
 \value{
@@ -20,7 +22,7 @@ Takes a project ID and extracts the involved scientists. Wraps
     around wrap_it.
 }
 \examples{
- df <- steps(id, reqtime = 2)
+ df <- steps(id, reqtime = 2, index = TRUE)
 
 
 }

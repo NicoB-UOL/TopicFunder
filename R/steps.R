@@ -8,10 +8,12 @@
 #' @param reqtime A integer number specifying the seconds to wait between requests.
 #'     Default is set to 0.
 #'
+#' @param index If set to TRUE, a continuous index keeps track of IDs already scraped.
+#'
 #' @return Returns a dataframe consisting of informations about all joined in scientists.
 #'
 #' @examples
-#'  df <- steps(id, reqtime = 2)
+#'  df <- steps(id, reqtime = 2, index = TRUE)
 #'
 #'
 #' @export

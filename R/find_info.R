@@ -9,12 +9,14 @@
 #' @param reqtime A integer number specifying the seconds to wait between requests.
 #'     Default is set to 0.
 #'
+#' @param index If set to TRUE, a continuous index keeps track of IDs already scraped.
+#'
 #' @return Returns a dataframe with additional project variables, such as number of
 #'      projects, name of the projects and their corresponding IDs.
 #'
 #' @examples  find_info(id)
 #' @examples
-#' x <- findeR("name")
+#' x <- findeR("Jürgen Gerhards")
 #' y <- find_info(x$id)
 #' z <- dplyr::left_join(y, x)
 #'

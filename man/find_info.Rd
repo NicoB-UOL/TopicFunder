@@ -11,6 +11,8 @@ find_info(x, reqtime = 0, index = TRUE)
 
 \item{reqtime}{A integer number specifying the seconds to wait between requests.
 Default is set to 0.}
+
+\item{index}{If set to TRUE, a continuous index keeps track of IDs already scraped.}
 }
 \value{
 Returns a dataframe with additional project variables, such as number of
@@ -23,7 +25,7 @@ Extract additional information based on a person's ID.
 }
 \examples{
  find_info(id)
-x <- findeR("name")
+x <- findeR("Jürgen Gerhards")
 y <- find_info(x$id)
 z <- dplyr::left_join(y, x)
 
