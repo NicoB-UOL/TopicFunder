@@ -2,27 +2,26 @@
 % Please edit documentation in R/steps.R
 \name{steps}
 \alias{steps}
-\title{TopicFundeR}
+\title{PackageMA - steps}
 \usage{
 steps(project_id, reqtime = 0, index = TRUE)
 }
 \arguments{
-\item{reqtime}{A integer number specifying the seconds to wait between requests.
+\item{reqtime}{A integer number specifying the number of seconds to wait between requests.
 Default is set to 0.}
 
-\item{index}{If set to TRUE, a continuous index keeps track of IDs already scraped.}
+\item{index}{If set to TRUE, a continuous index keeps track of the ID's that were already scraped.}
 
-\item{x}{A numeric ID.}
+\item{x}{A numeric project-ID.}
 }
 \value{
 Returns a dataframe consisting of informations about all joined in scientists.
 }
 \description{
-Takes a project ID and extracts the involved scientists. Wraps
-    around wrap_it.
+Takes a project ID and extracts the involved scientists.
 }
 \examples{
- df <- steps(id, reqtime = 2, index = TRUE)
+ df <- steps(project_id, reqtime = 2, index = TRUE)
 
 
 }

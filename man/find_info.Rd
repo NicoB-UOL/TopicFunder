@@ -2,30 +2,28 @@
 % Please edit documentation in R/find_info.R
 \name{find_info}
 \alias{find_info}
-\title{TopicFundeR}
+\title{PackageMA - find_info}
 \usage{
 find_info(x, reqtime = 0, index = TRUE)
 }
 \arguments{
 \item{x}{A numeric ID.}
 
-\item{reqtime}{A integer number specifying the seconds to wait between requests.
+\item{reqtime}{An integer number specifying the number of seconds to wait between requests.
 Default is set to 0.}
 
-\item{index}{If set to TRUE, a continuous index keeps track of IDs already scraped.}
+\item{index}{If set to TRUE, a continuous index keeps track of the ID's that were already scraped.}
 }
 \value{
-Returns a dataframe with additional project variables, such as number of
-     projects, name of the projects and their corresponding IDs.
+Returns a dataframe with additional project variables, such as the number of
+     projects, the name of the projects and their corresponding IDs.
 }
 \description{
 Extract additional information based on a person's ID.
-     FindeR and find_info are best used for single names and IDs. For multiple
-     values use fasteR and wrap_it for convenience.
 }
 \examples{
  find_info(id)
-x <- findeR("Jürgen Gerhards")
+x <- fasteR("Jürgen Gerhards")
 y <- find_info(x$id)
 z <- dplyr::left_join(y, x)
 

@@ -2,14 +2,14 @@
 % Please edit documentation in R/plotteR.R
 \name{plotteR}
 \alias{plotteR}
-\title{TopicFundeR}
+\title{PackageMA - plotteR}
 \usage{
 plotteR(df, bipartite = FALSE, plotting = TRUE)
 }
 \arguments{
 \item{bipartite}{If TRUE returns a two-mode network, otherwise a one-mode network}
 
-\item{plotting}{If TRUE the network will be plotted (default option). Otherwise the two-mode-graph is returned.}
+\item{plotting}{If TRUE the network will be plotted (default option). Otherwise the graph is returned.}
 
 \item{x}{A Dataframe.}
 }
@@ -17,7 +17,7 @@ plotteR(df, bipartite = FALSE, plotting = TRUE)
 Plots a Network to viewer.
 }
 \description{
-Plots a rudimental network. Either a bipartite or normal one.
+Wraps around igraph-functions and plots a rudimental network. Either a bipartite or normal one.
 }
 \examples{
 plotteR(df)

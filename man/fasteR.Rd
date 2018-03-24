@@ -2,14 +2,14 @@
 % Please edit documentation in R/fasteR.R
 \name{fasteR}
 \alias{fasteR}
-\title{TopicFundeR}
+\title{PackageMA - fasteR}
 \usage{
 fasteR(x, reqtime = 0, id_only = FALSE)
 }
 \arguments{
 \item{x}{A name put in quotation marks.}
 
-\item{reqtime}{A integer number specifying the seconds to wait between requests.
+\item{reqtime}{An integer number specifying the number of seconds to wait between requests.
 Default is set to 0.}
 
 \item{id_only}{If TRUE, returns only a vector containg the ID.}
@@ -19,11 +19,10 @@ Returns a dataframe consisting of a ID-Variable, the name-Variable
     and the input-Variable.
 }
 \description{
-This function has the same properties as "findeR" except that
-    it takes an additional parameter (id_only)
+Search the GEPRIS-Database for a name and extract the information.
 }
 \examples{
-names <- c("name1", "name2", "name3", "...")
+names <- c("J*rgen Gerhards", "Matthias Middell", "Stefan Hornbostel")
 id <- sapply(names, fasteR, reqtime = 5, id_only = TRUE)
 
 
