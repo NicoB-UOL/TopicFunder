@@ -56,7 +56,7 @@ plotteR(df)
 -   `steps`: finds the collaborating scientists of said projects based on the project-ID
 -   please put an appropriate delay between the requests (`reqtime = 5`)
 
--   instead of plotting the data directly you can also export it directly as a igraph-object
+-   instead of plotting the data you can also export it directly as an igraph-object
     -   `g <- plotteR(df, plotting = F)`
 -   if you are interested in more then one scientist you can also enter it into `meta_fun` or chain it with the `apply`-family
 
