@@ -1,22 +1,20 @@
-#' @title TopicFundeR
+#' @title PackageMA - find_info
 #'
 #' @description Extract additional information based on a person's ID.
-#'      FindeR and find_info are best used for single names and IDs. For multiple
-#'      values use fasteR and wrap_it for convenience.
 #'
 #' @param x A numeric ID.
 #'
-#' @param reqtime A integer number specifying the seconds to wait between requests.
+#' @param reqtime An integer number specifying the number of seconds to wait between requests.
 #'     Default is set to 0.
 #'
-#' @param index If set to TRUE, a continuous index keeps track of IDs already scraped.
+#' @param index If set to TRUE, a continuous index keeps track of the ID's that were already scraped.
 #'
-#' @return Returns a dataframe with additional project variables, such as number of
-#'      projects, name of the projects and their corresponding IDs.
+#' @return Returns a dataframe with additional project variables, such as the number of
+#'      projects, the name of the projects and their corresponding IDs.
 #'
 #' @examples  find_info(id)
 #' @examples
-#' x <- findeR("Jürgen Gerhards")
+#' x <- fasteR("Jürgen Gerhards")
 #' y <- find_info(x$id)
 #' z <- dplyr::left_join(y, x)
 #'
@@ -46,7 +44,7 @@ find_info <- function(x, reqtime = 0, index = TRUE) {
             name <- rvest::html_node(page, "h3")
             name <- rvest::html_text(name, trim = TRUE)
             projectlist <- rvest::html_nodes(page, "#projekteNachRolle .intern")
-            anzahl_projekte <- length(projectlist)
+            number_projects <- length(projectlist)
             affiliation <- rvest::html_nodes(page, ".details p:nth-child(1)")
             affiliation <- rvest::html_text(affiliation, trim = T)
             affiliation <- gsub("(\\t|\\n|\\s+)", " ", affiliation)
@@ -60,15 +58,15 @@ find_info <- function(x, reqtime = 0, index = TRUE) {
         if (length(projectlist) == 0) {
             warning("not a valide ID")
             data.frame(id = x, name = NA, projects = NA, project_id = NA,
-                       anzahl_projekte = NA, affiliation = NA, stringsAsFactors = F)
+                       number_projects = NA, affiliation = NA, stringsAsFactors = F)
         }
         else {
-            data.frame(id, name, projects, project_id, anzahl_projekte,
+            data.frame(id, name, projects, project_id, number_projects,
                        affiliation, stringsAsFactors = F)
         }
     } else {
         message("Duplicated ID detected proceeding with next ID.")
         data.frame(id = NA, name = NA, projects = NA, project_id = NA,
-                   anzahl_projekte = NA, affiliation = NA, stringsAsFactors = F)
+                   number_projects = NA, affiliation = NA, stringsAsFactors = F)
     }
 }

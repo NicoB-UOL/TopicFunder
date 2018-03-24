@@ -1,11 +1,10 @@
-#' @title TopicFundeR
+#' @title PackageMA - fasteR
 #'
-#' @description This function has the same properties as "findeR" except that
-#'     it takes an additional parameter (id_only)
+#' @description Search the GEPRIS-Database for a name and extract the information.
 #'
 #' @param x A name put in quotation marks.
 #'
-#' @param reqtime A integer number specifying the seconds to wait between requests.
+#' @param reqtime An integer number specifying the number of seconds to wait between requests.
 #'     Default is set to 0.
 #'
 #' @param id_only If TRUE, returns only a vector containg the ID.
@@ -14,7 +13,7 @@
 #'     and the input-Variable.
 #'
 #' @examples
-#' names <- c("name1", "name2", "name3", "...")
+#' names <- c("J*rgen Gerhards", "Matthias Middell", "Stefan Hornbostel")
 #' id <- sapply(names, fasteR, reqtime = 5, id_only = TRUE)
 #'
 #'

@@ -1,12 +1,12 @@
-#' @title TopicFundeR
+#' @title PackageMA - plotteR
 #'
-#' @description Plots a rudimental network. Either a bipartite or normal one.
+#' @description Wraps around igraph-functions and plots a rudimental network. Either a bipartite or normal one.
 #'
 #' @param x A Dataframe.
 #'
 #' @param bipartite If TRUE returns a two-mode network, otherwise a one-mode network
 #'
-#' @param plotting If TRUE the network will be plotted (default option). Otherwise the two-mode-graph is returned.
+#' @param plotting If TRUE the network will be plotted (default option). Otherwise the graph is returned.
 #'
 #' @return Plots a Network to viewer.
 #'

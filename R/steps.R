@@ -1,19 +1,18 @@
-#' @title TopicFundeR
+#' @title PackageMA - steps
 #'
-#' @description Takes a project ID and extracts the involved scientists. Wraps
-#'     around wrap_it.
+#' @description Takes a project ID and extracts the involved scientists.
 #'
-#' @param x A numeric ID.
+#' @param x A numeric project-ID.
 #'
-#' @param reqtime A integer number specifying the seconds to wait between requests.
+#' @param reqtime A integer number specifying the number of seconds to wait between requests.
 #'     Default is set to 0.
 #'
-#' @param index If set to TRUE, a continuous index keeps track of IDs already scraped.
+#' @param index If set to TRUE, a continuous index keeps track of the ID's that were already scraped.
 #'
 #' @return Returns a dataframe consisting of informations about all joined in scientists.
 #'
 #' @examples
-#'  df <- steps(id, reqtime = 2, index = TRUE)
+#'  df <- steps(project_id, reqtime = 2, index = TRUE)
 #'
 #'
 #' @export
@@ -37,8 +36,10 @@ steps <- function(project_id, reqtime = 0, index = TRUE){
         ids <- append(ids, "0")
     }
 
+    df <- lapply(ids, find_info, reqtime = reqtime,  index = index)
+    df <- do.call(rbind, df)
+    rownames(df) <- 1:nrow(df)
 
-    df <- wrap_it(unique(ids), reqtime = reqtime, index = index)
     df <- dplyr::distinct(df, id, project_id, .keep_all = T)
     df <- df[complete.cases(df),]
 
