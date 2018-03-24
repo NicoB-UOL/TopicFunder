@@ -38,11 +38,6 @@ Enter a name and get a dataframe back, which you can plot as a network
 library(TopicFundeR)
 name <- "Nüsslein-Volhard, Christiane"
 df <- meta_fun(name, reqtime = 5)
-```
-
-    ## Joining, by = "project_id"
-
-``` r
 plotteR(df)
 ```
 
