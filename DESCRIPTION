@@ -1,7 +1,7 @@
 Package: TopicFundeR
 Type: Package
 Title: Aquire information about funded persons and projects in the DFG-Database
-Packaged: 2018
+Year: 2018
 Version: 0.1.5
 Author: Nico Blokker and Alena Klenke
 Maintainer: Nico Blokker <nicoblokker.uol@gmail.com>
