@@ -46,7 +46,7 @@ plotteR(df)
 #### Longer version
 
 -   `meta_fun` mainly wraps around three other functions:
--   `fasteR`: enter a name -&gt; get a ID
+-   `fasteR`: enter a name -&gt; get an ID
 -   `find_info`: get information belonging to this ID (like affiliation or DFG-projects)
 -   `steps`: finds the collaborating scientists of said projects based on the project-ID
 -   please put an appropriate delay between the requests (`reqtime = 5`)
