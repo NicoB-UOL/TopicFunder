@@ -53,7 +53,7 @@ plotteR(df)
 
 -   instead of plotting the data you can also export it directly as an igraph-object
     -   `g <- plotteR(df, plotting = F)`
--   if you are interested in more then one scientist you can also enter it into `meta_fun` or chain it with the `apply`-family
+-   if you are interested in more then one scientist you can also enter their names or IDs into `meta_fun` or chain it with the `apply`-family
 
 -   how to get names?
     -   `get_names` let's you specify field and subdisciplines even without entering a specific name first
