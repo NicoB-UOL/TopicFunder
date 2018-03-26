@@ -8,7 +8,7 @@ Maintainer: Nico Blokker <nicoblokker.uol@gmail.com>
 Description: TopicFundeR let's you search and save information located in the GEPRIS-Database of the German Research Foundation (Deutsche Forschungsgemeinschaft)
 License: GLP-3
 Encoding: UTF-8
-LazyData: false
+LazyData: no
 Imports: 
     xml2, rvest, dplyr, stringr, httr, igraph, plyr
 Suggests: 
