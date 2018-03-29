@@ -68,10 +68,10 @@ get_project_details <- function(project_id, reqtime = 0) {
         x$involved_persons <- list(ids)
         x$project_id <- project_id
         x$Projektkennung <- gsub("[^\\d]", "", x$Projektkennung, perl = TRUE)
-        f <- which(colnames(x) == "Förderung")
+        f <- which(colnames(x) == "FÃ¶rderung")
         if(length(f) > 0){
             colnames(x)[3] <- "Foerderung"
-            x$Foerderung1 <- gsub("Förderung", "",x$Foerderung)
+            x$Foerderung1 <- gsub("FÃ¶rderung", "",x$Foerderung)
             x$Foerderung1 <- gsub("seit", "", x$Foerderung1)
             x$Foerderung1 <- gsub("in", "", x$Foerderung1)
             x$Foerderung1 <- gsub("von", "", x$Foerderung1)
@@ -80,6 +80,7 @@ get_project_details <- function(project_id, reqtime = 0) {
             x$Foerderung_start <- stringr::str_extract(x$Foerderung1, "^\\d{4}")
             x$Foerderung_ende <- stringr::str_extract(x$Foerderung1, "(?<=:)\\d{4}")
             x$Foerderung1 <- NULL
+            x
 
         }
 
