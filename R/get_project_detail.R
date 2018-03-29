@@ -1,4 +1,4 @@
-#' @title PackageMA - get_project_detail
+#' @title TopicFundeR - get_project_details
 #'
 #' @description Search the GEPRIS-Database for a project-ID and extract the information.
 #'
@@ -68,6 +68,16 @@ get_project_details <- function(project_id, reqtime = 0) {
         x$involved_persons <- list(ids)
         x$project_id <- project_id
         x$Projektkennung <- gsub("[^\\d]", "", x$Projektkennung, perl = TRUE)
+        x$Förderung1 <- gsub("Förderung", "",x$Förderung)
+        x$Förderung1 <- gsub("seit", "", x$Förderung1)
+        x$Förderung1 <- gsub("in", "", x$Förderung1)
+        x$Förderung1 <- gsub("von", "", x$Förderung1)
+        x$Förderung1 <- gsub("bis", ":", x$Förderung1)
+        x$Förderung1 <- gsub("\\s", "", x$Förderung1)
+        x$Förderung_start <- stringr::str_extract(x$Förderung1, "^\\d{4}")
+        x$Förderung_ende <- stringr::str_extract(x$Förderung1, "(?<=:)\\d{4}")
+        x$Förderung1 <- NULL
+
         colnames(x) <- gsub("[^\\w-\\\\\\s]", "", colnames(x), perl = TRUE)
         x
 
