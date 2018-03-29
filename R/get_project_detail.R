@@ -70,7 +70,7 @@ get_project_details <- function(project_id, reqtime = 0) {
         x$Projektkennung <- gsub("[^\\d]", "", x$Projektkennung, perl = TRUE)
         f <- which(colnames(x) == "Förderung")
         if(length(f) > 0){
-            colnames(x)[3] <- "Foerderung"
+            colnames(x)[f] <- "Foerderung"
             x$Foerderung1 <- gsub("Förderung", "",x$Foerderung)
             x$Foerderung1 <- gsub("seit", "", x$Foerderung1)
             x$Foerderung1 <- gsub("in", "", x$Foerderung1)
