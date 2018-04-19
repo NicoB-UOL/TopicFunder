@@ -51,7 +51,7 @@ find_info <- function (x, reqtime = 0, index = TRUE){
             address <- gsub("(\\t|\\n|\\s+)", " ", address)
             affiliation <- NA
             for (i in 1:length(TopicFundeR:::result2)) {
-                pos <- agrep(TopicFundeR:::result2[i], address, fixed = TRUE)
+                pos <- agrep(TopicFundeR:::result2[i], address, fixed = TRUE, max.distance = .05)
                 affiliation[pos] <- TopicFundeR:::result2[i]
             }
             if(is.na(affiliation) & length(address)>0){
