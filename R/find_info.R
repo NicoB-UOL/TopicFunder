@@ -52,7 +52,7 @@ find_info <- function (x, reqtime = 0, index = TRUE){
             affiliation <- NA
             for (i in 1:length(TopicFundeR:::result2)) {
                 #pos <- agrep(TopicFundeR:::result2[i], address, fixed = TRUE, max.distance = .05)
-                 pos <- grep(TopicFundeR:::result2[i], address)
+                 pos <- grep(TopicFundeR:::result2[i], address, fixed = TRUE)
                  affiliation[pos] <- TopicFundeR:::result2[i]
             }
             if(is.na(affiliation) & length(address)>0){
