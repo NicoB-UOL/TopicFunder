@@ -52,8 +52,8 @@ find_info <- function (x, reqtime = 0, index = TRUE){
             affiliation <- NA
             for (i in 1:length(TopicFundeR:::result2)) {
                 #pos <- agrep(TopicFundeR:::result2[i], address, fixed = TRUE, max.distance = .05)
-                pos <- grep(TopicFundeR:::result2[i], address, fixed = TRUE)
-                affiliation[pos] <- TopicFundeR:::result2[i]
+                pos <- regexpr(address, TopicFundeR:::result2, fixed = TRUE)
+                affiliation <- affiliation <- TopicFundeR:::result2[order(attr(pos, "match.length"), decreasing = TRUE)][1]
             }
             if(is.na(affiliation) & length(address)>0){
                 message("Unknown affiliation. Please check address")
