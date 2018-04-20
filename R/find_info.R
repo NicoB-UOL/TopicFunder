@@ -49,12 +49,12 @@ find_info <- function (x, reqtime = 0, index = TRUE){
             address <- rvest::html_nodes(page, ".details p:nth-child(1)")
             address <- rvest::html_text(address, trim = T)
             address <- gsub("(\\t|\\n|\\s+)", " ", address)
-            affiliation <- NA
-            for (i in 1:length(TopicFundeR:::result2)) {
+            #affiliation <- NA
+            #for (i in 1:length(TopicFundeR:::result2)) {
                 #pos <- agrep(TopicFundeR:::result2[i], address, fixed = TRUE, max.distance = .05)
                 pos <- regexpr(address, TopicFundeR:::result2, fixed = TRUE)
-                affiliation <- affiliation <- TopicFundeR:::result2[order(attr(pos, "match.length"), decreasing = TRUE)][1]
-            }
+                affiliation <- TopicFundeR:::result2[order(attr(pos, "match.length"), decreasing = TRUE)][1]
+            #}
             if(is.na(affiliation) & length(address)>0){
                 message("Unknown affiliation. Please check address")
                 affiliation <- "check affiliation"
