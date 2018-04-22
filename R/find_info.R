@@ -46,19 +46,11 @@ find_info <- function (x, reqtime = 0, index = TRUE){
             name <- rvest::html_text(name, trim = TRUE)
             projectlist <- rvest::html_nodes(page, "#projekteNachRolle .intern")
             number_projects <- length(projectlist)
-            address <- rvest::html_nodes(page, ".details p:nth-child(1)")
-            address <- rvest::html_text(address, trim = T)
-            address <- gsub("(\\t|\\n|\\s+)", " ", address)
-            affiliation <- NA
-            for (i in 1:length(TopicFundeR:::result2)) {
-                #pos <- agrep(TopicFundeR:::result2[i], address, fixed = TRUE, max.distance = .05)
-                 pos <- grep(TopicFundeR:::result2[i], address, fixed = TRUE)
-                 affiliation[pos] <- TopicFundeR:::result2[i]
-            }
-            if(is.na(affiliation) & length(address)>0){
-                message("Unknown affiliation. Please check address")
-                affiliation <- "check affiliation"
-            }
+                    address <- rvest::html_nodes(page, xpath = '//*[@id="detailseite"]/div/div/div[2]/div[1]/div[1]/p[1]/span[2]/text()')
+        address <- rvest::html_text(address, trim = T)
+        address <- gsub("(\\t|\\n|\\s+)", " ", address)
+        address <- paste(address, collapse = ";")
+        affiliation <- strsplit(address, ";")[[1]][1]
             project_link <- rvest::html_attr(projectlist, "href")
             projects <- rvest::html_text(projectlist, trim = TRUE)
             project_id <- stringr::str_extract(project_link,
