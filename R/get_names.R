@@ -20,7 +20,7 @@
 #'
 #' @export
 
-get_names <- function(fachgebiet = "Biologie", fachkollegium = "%",fach = "%", hits  = 10){
+get_names <- function(fachgebiet = "Biologie", fachkollegium = "%",fach = "%", hits  = 10, uni = "%"){
 
     fields <- c("Agrar-, Forstwissenschaften und Tiermedizin", "Bauwesen und Architektur",  "Biologie", "Chemie",
                 "Geisteswissenschaften", "Geowissenschaften", "Informatik, Sytem- und Elektrotechnik", "Maschinenbau und Produktionstechnik",
@@ -44,10 +44,12 @@ get_names <- function(fachgebiet = "Biologie", fachkollegium = "%",fach = "%", h
                   "rojekteMitAB=false&bundesland=DEU%23&oldpeo=%23&peo=%23&zk_transf",
                   "erprojekt=false&teilprojekte=false&teilprojekte=true&bewilligungs",
                   "Status=&beginOfFunding=&gefoerdertIn=&oldGgsHunderter=0&ggsHunder",
-                  "ter=0&einrichtungsart=-1&hitsPerPage=",
+                  "ter=0&einrichtungsart=",
+                  uni,
+                  "&orderBy=ort",
+                  "&hitsPerPage=",
                   hits,
-                  "&",
-                  "findButton=Finden")
+                  "&findButton=Finden")
     page <- xml2::read_html(link)
     namelist <- rvest::html_nodes(page, "h2 a")
     names <- stringr::str_extract(namelist, ">.*?<")
