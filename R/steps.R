@@ -41,7 +41,7 @@ steps <- function(project_id, reqtime = 0, index = TRUE){
     rownames(df) <- 1:nrow(df)
 
     df <- dplyr::distinct(df, id, project_id, .keep_all = T)
-    df <- df[complete.cases(df),]
+    df <- df[!is.na(df$id), ]
 
 
 }
