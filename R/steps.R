@@ -20,7 +20,7 @@
 steps <- function(project_id, reqtime = 0, index = TRUE){
     Sys.sleep(reqtime)
     id <- as.numeric(project_id)
-    link <- paste0("http://gepris.dfg.de/gepris/projekt/", id)
+    link <- paste0("https://gepris.dfg.de/gepris/projekt/", id)
     ids <- vector()
 
     page <- httr::GET(link)
