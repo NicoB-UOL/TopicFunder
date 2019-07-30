@@ -37,7 +37,7 @@ find_info <- function (x, reqtime = 0, index = TRUE){
     if (dutemp == FALSE) {
         Sys.sleep(reqtime)
         id <- as.numeric(x)
-        link <- paste0("http://gepris.dfg.de/gepris/person/",
+        link <- paste0("https://gepris.dfg.de/gepris/person/",
                        id)
         page <- httr::GET(link)
         if (page$status_code < 300) {
