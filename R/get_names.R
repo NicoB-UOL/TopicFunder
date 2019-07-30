@@ -31,9 +31,9 @@ get_names <- function(fachgebiet = "Biologie", fachkollegium = "%",fach = "%", h
     field <- grep(fachgebiet, fields)
     fachgebiet <- codes[field]
     stopifnot(length(fachgebiet) == 1)
-    message("See 'http://www.dfg.de/dfg_profil/gremien/fachkollegien/faecher/index.jsp' for structure details", "\n",
+    message("See 'https://www.dfg.de/dfg_profil/gremien/fachkollegien/faecher/index.jsp' for structure details", "\n",
             "for example set 'fachkollegium' to 201 and 'fach' to 20105")
-    link<- paste0("http://gepris.dfg.de/gepris/OCTOPUS?task=doKatalog&context=person",
+    link<- paste0("https://gepris.dfg.de/gepris/OCTOPUS?task=doKatalog&context=person",
                   "&fachgebiet=",
                   fachgebiet,
                   "&fachkollegium=",
