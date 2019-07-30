@@ -23,7 +23,7 @@ fasteR <- function(x, reqtime = 0, id_only = FALSE) {
     Sys.sleep(reqtime)
     searchterm <- trimws(x)
     y <- gsub("\\s+", "+", searchterm)
-    link <- paste0("http://gepris.dfg.de/gepris/OCTOPUS?keywords_criterion=",
+    link <- paste0("https://gepris.dfg.de/gepris/OCTOPUS?keywords_criterion=",
                    y,
                    "&findButton=Finden&task=doSearchSimple&context=person")
     page <- xml2::read_html(link)
