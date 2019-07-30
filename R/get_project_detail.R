@@ -21,7 +21,7 @@
 
 get_project_details <- function(project_id, reqtime = 0) {
     Sys.sleep(reqtime)
-    link <- paste0("http://gepris.dfg.de/gepris/projekt/", project_id)
+    link <- paste0("https://gepris.dfg.de/gepris/projekt/", project_id)
     text <- vector()
 
     page <- httr::GET(link)
